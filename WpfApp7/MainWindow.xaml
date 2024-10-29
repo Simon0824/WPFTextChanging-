@@ -15,10 +15,15 @@
                 </LinearGradientBrush>
             </TextBox.Background>
         </TextBox>
-        <StackPanel>
-            <Slider Width="200px"  VerticalAlignment="Center">
-            </Slider>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="10,270,0,0">
+            <TextBlock Text="Kolor czcionki" FontWeight="Bold"></TextBlock>
+            <RadioButton Content="Czarny" Foreground="Black" GroupName="KolorCzcionki" Checked="UpdateFormatting"></RadioButton>
+            <RadioButton Content="Czerwony" Foreground="Red"  GroupName="KolorCzcionki" Checked="UpdateFormatting"></RadioButton>
+            <RadioButton Content="Zielony" Foreground="Green"  GroupName="KolorCzcionki" Checked="UpdateFormatting"></RadioButton>
+            <RadioButton Content="Niebieski" Foreground="Blue"  GroupName="KolorCzcionki" Checked="UpdateFormatting"></RadioButton>
         </StackPanel>
+        <Slider x:Name="SuwakKoloruCzcionki" Orientation="Vertical" Minimum="10" Maximum="40" Width="30" Margin="500,10,0,0"
+                VerticalAlignment="Top" ValueChanged="UpdateFormatting" ToolTip="Rozmiar czcionki"></Slider>
 
     </Grid>
 </Window>
