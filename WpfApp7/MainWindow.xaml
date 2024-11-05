@@ -7,23 +7,52 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="Formatowanie tekstu" TextWrapping="Wrap" SpellCheck.IsEnabled="True" FontSize="16" Width="400" Height="200" Margin="10, 10, 10,0" VerticalAlignment="Top">
+        <TextBox TextWrapping="Wrap" SpellCheck.IsEnabled="True" FontSize="16" Width="400" Height="200" Margin="10, 10, 10,0" VerticalAlignment="Top">
             <TextBox.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="LightGray"/>
-                    <GradientStop Color="White"/>
+                    <GradientStop Color="LightGray" Offset="0.0"/>
+                    <GradientStop Color="White" Offset="1.0"/>
                 </LinearGradientBrush>
             </TextBox.Background>
         </TextBox>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="10,270,0,0">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="80,220,0,0">
+            <CheckBox>
+                <TextBlock Text="Bold" FontWeight="Bold"/>
+            </CheckBox>
+            <CheckBox>
+                <TextBlock Text="Italic" FontStyle="Italic"/>
+            </CheckBox>
+            <CheckBox>
+                <TextBlock Text="Podkreślenie" TextDecorations="Underline"/>
+            </CheckBox>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="80,270,0,0">
             <TextBlock Text="Kolor czcionki" FontWeight="Bold"></TextBlock>
             <RadioButton Content="Czarny" Foreground="Black" GroupName="KolorCzcionki" Checked="UpdateFormatting"></RadioButton>
             <RadioButton Content="Czerwony" Foreground="Red"  GroupName="KolorCzcionki" Checked="UpdateFormatting"></RadioButton>
             <RadioButton Content="Zielony" Foreground="Green"  GroupName="KolorCzcionki" Checked="UpdateFormatting"></RadioButton>
             <RadioButton Content="Niebieski" Foreground="Blue"  GroupName="KolorCzcionki" Checked="UpdateFormatting"></RadioButton>
         </StackPanel>
-        <Slider x:Name="SuwakKoloruCzcionki" Orientation="Vertical" Minimum="10" Maximum="40" Width="30" Margin="500,10,0,0"
-                VerticalAlignment="Top" ValueChanged="UpdateFormatting" ToolTip="Rozmiar czcionki"></Slider>
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="258,270,0,0">
+            <TextBlock Text="Kolor tła" FontWeight="Bold"></TextBlock>
+            <RadioButton Content="Beżowy" Foreground="DarkKhaki" GroupName="Kolortla" Checked="UpdateFormatting"></RadioButton>
+            <RadioButton Content="Czerwony" Foreground="Red"  GroupName="Kolortla" Checked="UpdateFormatting"></RadioButton>
+            <RadioButton Content="Zielony" Foreground="Green"  GroupName="Kolortla" Checked="UpdateFormatting"></RadioButton>
+            <RadioButton Content="Niebieski" Foreground="Blue"  GroupName="Kolortla" Checked="UpdateFormatting"></RadioButton>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="150,270,0,0">
+            <TextBlock Text="Krój czcionki" FontWeight="Bold"></TextBlock>
+            <RadioButton Content="Arial"  GroupName="Kroj" Checked="UpdateFormatting"></RadioButton>
+            <RadioButton Content="TimesNewRoman"  GroupName="Kroj" Checked="UpdateFormatting"></RadioButton>
+            <RadioButton Content="CourierNew"  GroupName="Kroj" Checked="UpdateFormatting"></RadioButton>
+        </StackPanel>
+
+        <Slider Orientation="Vertical" Minimum="8" Maximum="75" Width="20" HorizontalAlignment="Right" SmallChange="0.5" LargeChange="1" Value="12"
+                VerticalAlignment="Bottom"  ValueChanged="UpdateFormatting" ToolTip="Rozmiar czcionki" Margin="0,0,46,224" Height="200"></Slider>
+        <ProgressBar Height="30" Width="500" VerticalAlignment="Bottom" Minimum="0" Maximum="8">
+        </ProgressBar>
 
     </Grid>
 </Window>

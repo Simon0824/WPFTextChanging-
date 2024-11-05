@@ -20,5 +20,10 @@ namespace WpfApp7
         {
             InitializeComponent();
         }
+
+        private void InitializeComponent()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
