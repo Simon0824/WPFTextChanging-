@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="poletekstu" TextWrapping="Wrap" SpellCheck.IsEnabled="True" FontSize="16" Width="400" Height="200" Margin="10, 10, 10,0" VerticalAlignment="Top">
+        <TextBox  Text="Wprowadź tekst" x:Name="poletekstu" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Width="400" Height="200" Margin="10, 10, 10,0" VerticalAlignment="Top">
             <TextBox.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="LightGray" Offset="0.0"/>
@@ -16,11 +16,14 @@
             </TextBox.Background>
         </TextBox>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="80,220,0,0">
-            <CheckBox  x:Name="bold" Content="Bold" FontWeight="Bold">
+            <CheckBox  x:Name="bold" Checked="Aktualizuj" Unchecked="Aktualizuj">
+                <TextBlock  Text="Bold" FontWeight="Bold"></TextBlock>
             </CheckBox>
-            <CheckBox x:Name="italic" Content="Italic" FontStyle="Italic">
+            <CheckBox x:Name="italic" Checked="Aktualizuj" Unchecked="Aktualizuj">
+                <TextBlock Text="Italic" FontStyle="Italic" ></TextBlock>
             </CheckBox>
-            <CheckBox x:Name="Podkresl" Content="Podkreślenie" >
+            <CheckBox x:Name="Podkresl" Checked="Aktualizuj" Unchecked="Aktualizuj">
+                <TextBlock Text="Podkreślenie" TextDecorations="Underline"></TextBlock>
             </CheckBox>
         </StackPanel>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="80,270,0,0">
@@ -31,7 +34,7 @@
             <RadioButton x:Name="Niebieskiczcionk" Content="Niebieski" Foreground="Blue"  GroupName="KolorCzcionki" Checked="Aktualizuj"></RadioButton>
         </StackPanel>
 
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="247,270,0,0" Width="73">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="-240,270,0,0" Width="73">
             <TextBlock Text="Kolor tła" FontWeight="Bold"></TextBlock>
             <RadioButton x:Name="BezowyTlo" Content="Beżowy" Foreground="DarkKhaki" GroupName="Kolortla" Checked="Aktualizuj"></RadioButton>
             <RadioButton x:Name="CzerwonyTlo" Content="Czerwony" Foreground="Red"  GroupName="Kolortla" Checked="Aktualizuj"></RadioButton>
@@ -39,7 +42,7 @@
             <RadioButton x:Name="NiebieskiTlo" Content="Niebieski" Foreground="Blue"  GroupName="Kolortla" Checked="Aktualizuj"></RadioButton>
         </StackPanel>
 
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="460,270,0,0">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="200,270,0,0">
             <TextBlock Text="Justowanie" FontWeight="Bold"></TextBlock>
             <RadioButton x:Name="Lewo" Content="Lewo"  GroupName="Justowanie" Checked="Aktualizuj"></RadioButton>
             <RadioButton x:Name="Srodek" Content="Środek"  GroupName="Justowanie" Checked="Aktualizuj"></RadioButton>
@@ -55,10 +58,10 @@
         </StackPanel>
 
         <Slider Orientation="Vertical" Minimum="8" Maximum="75" Width="20" HorizontalAlignment="Right" SmallChange="0.5" LargeChange="1" Value="12"
-                VerticalAlignment="Top"  ValueChanged="Aktualizuj" ToolTip="Rozmiarczcionki" Margin="0,10,43,0" Height="207"></Slider>
+                VerticalAlignment="Top"  ValueChanged="Aktualizuj" ToolTip="Rozmiarczcionki" Margin="0,10,43,0" Height="207" x:Name="suwak"></Slider>
 
 
-        <ProgressBar Height="30" Width="500" VerticalAlignment="Bottom" Minimum="0" Maximum="8">
+        <ProgressBar x:Name="panel" Height="30" Width="500" VerticalAlignment="Bottom" Minimum="0" Maximum="8">
         </ProgressBar>
 
     </Grid>

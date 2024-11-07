@@ -23,16 +23,17 @@ namespace Edytor
         {
             if (bold == null || italic == null || Podkresl == null || Czarnyczcionk == null || Czerwonyczcionk == null ||
                 Zielonyczcionk == null || Niebieskiczcionk == null ||
-                BezowyTlo == null || CzerwonyTlo == null || ZielonyTlo == null 
+                BezowyTlo == null || CzerwonyTlo == null || ZielonyTlo == null
                 || NiebieskiTlo == null || Lewo == null || Srodek == null || Prawo == null || Just == null || Arial == null ||
-                Times == null || Courier == null)
+                Times == null || Courier == null || panel == null || suwak == null)
             {
-                return; 
+                return;
             }
             UstawKolorCzcionki();
             UstawKolorTla();
             UstawJustowanie();
             UstawStylCzcionki();
+            UstawKrojCzcionki();
             RozmCzionki();
             Progres();
         }
@@ -79,15 +80,15 @@ namespace Edytor
 
         private void UstawJustowanie()
         {
-            if(Lewo.IsChecked == true)
-            poletekstu.TextAlignment = TextAlignment.Left;
-            if(Srodek.IsChecked==true)
-                poletekstu.TextAlignment= TextAlignment.Center;
+            if (Lewo.IsChecked == true)
+                poletekstu.TextAlignment = TextAlignment.Left;
+            if (Srodek.IsChecked == true)
+                poletekstu.TextAlignment = TextAlignment.Center;
             if (Prawo.IsChecked == true)
                 poletekstu.TextAlignment = TextAlignment.Right;
             if (Just.IsChecked == true)
                 poletekstu.TextAlignment = TextAlignment.Justify;
-            
+
         }
 
         private void UstawStylCzcionki()
@@ -97,9 +98,9 @@ namespace Edytor
             var grubosc = FontWeights.Normal;
             var dodatki = new TextDecorationCollection();
 
-            if(bold.IsChecked == true)
+            if (bold.IsChecked == true)
                 grubosc = FontWeights.Bold;
-            if(italic.IsChecked == true)
+            if (italic.IsChecked == true)
                 styl = FontStyles.Italic;
             if (Podkresl.IsChecked == true)
                 dodatki = TextDecorations.Underline;
@@ -110,18 +111,17 @@ namespace Edytor
 
         private void UstawKrojCzcionki()
         {
-            if(Arial.IsChecked == true)
-            poletekstu.FontFamily = Arial.FontFamily;
-            if(Courier.IsChecked == true)
-                poletekstu.FontFamily = Courier.FontFamily;
-            if(Times.IsChecked == true)
-                poletekstu.FontFamily = Times.FontFamily;
-           
+            if (Arial.IsChecked == true)
+                poletekstu.FontFamily = new FontFamily("Arial");
+            else if (Times.IsChecked == true)
+                poletekstu.FontFamily = new FontFamily("Times New Roman");
+            else if (Courier.IsChecked == true)
+                poletekstu.FontFamily = new FontFamily("Courier New");
         }
 
         private void RozmCzionki()
         {
-
+            poletekstu.FontSize = suwak.Value;
         }
 
         private void Progres()
@@ -131,11 +131,13 @@ namespace Edytor
             if (bold.IsChecked == true) progresik++;
             if (italic.IsChecked == true) progresik++;
             if (Podkresl.IsChecked == true) progresik++;
-            if(Czarnyczcionk.IsChecked == true || Czerwonyczcionk.IsChecked == true ||   Zielonyczcionk.IsChecked == true
+            if (Czarnyczcionk.IsChecked == true || Czerwonyczcionk.IsChecked == true || Zielonyczcionk.IsChecked == true
                 || Niebieskiczcionk.IsChecked == true) progresik++;
             if (BezowyTlo.IsChecked == true || CzerwonyTlo.IsChecked == true || ZielonyTlo.IsChecked == true || NiebieskiTlo.IsChecked == true) progresik++;
-            if (Lewo.IsChecked == true || Srodek.IsChecked ==true || Prawo.IsChecked == true || Just.IsChecked == true) progresik++;
-            if ()
+            if (Lewo.IsChecked == true || Srodek.IsChecked == true || Prawo.IsChecked == true || Just.IsChecked == true) progresik++;
+            if (Arial.IsChecked == true || Times.IsChecked == true || Courier.IsChecked == true) progresik++;
+            if (suwak.Value != suwak.Minimum) progresik++;
+            panel.Value = progresik;
         }
     }
 }
