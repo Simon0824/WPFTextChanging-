@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox TextWrapping="Wrap" SpellCheck.IsEnabled="True" FontSize="16" Width="400" Height="200" Margin="10, 10, 10,0" VerticalAlignment="Top">
+        <TextBox x:Name="poletekstu" TextWrapping="Wrap" SpellCheck.IsEnabled="True" FontSize="16" Width="400" Height="200" Margin="10, 10, 10,0" VerticalAlignment="Top">
             <TextBox.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="LightGray" Offset="0.0"/>
@@ -16,14 +16,11 @@
             </TextBox.Background>
         </TextBox>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="80,220,0,0">
-            <CheckBox>
-                <TextBlock x:Name="bold" Text="Bold" FontWeight="Bold"/>
+            <CheckBox  x:Name="bold" Content="Bold" FontWeight="Bold">
             </CheckBox>
-            <CheckBox>
-                <TextBlock x:Name="italic" Text="Italic" FontStyle="Italic"/>
+            <CheckBox x:Name="italic" Content="Italic" FontStyle="Italic">
             </CheckBox>
-            <CheckBox>
-                <TextBlock x:Name="Podkresl" Text="Podkreślenie" TextDecorations="Underline"/>
+            <CheckBox x:Name="Podkresl" Content="Podkreślenie" >
             </CheckBox>
         </StackPanel>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="80,270,0,0">
@@ -47,6 +44,7 @@
             <RadioButton x:Name="Lewo" Content="Lewo"  GroupName="Justowanie" Checked="Aktualizuj"></RadioButton>
             <RadioButton x:Name="Srodek" Content="Środek"  GroupName="Justowanie" Checked="Aktualizuj"></RadioButton>
             <RadioButton x:Name="Prawo" Content="Prawo"  GroupName="Justowanie" Checked="Aktualizuj"></RadioButton>
+            <RadioButton x:Name="Just" Content="Justuj"  GroupName="Justowanie" Checked="Aktualizuj"></RadioButton>
         </StackPanel>
 
         <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Margin="0,270,80,0">
