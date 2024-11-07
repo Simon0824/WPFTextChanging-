@@ -19,16 +19,19 @@ namespace Edytor
             InitializeComponent();
         }
 
+        //metoda, która aktualizuje zmiany wprowadzone do tekstu
         private void Aktualizuj(object sender, RoutedEventArgs e)
         {
+            // jeśli kontrolki nie mają wartości, zamyka się program
             if (bold == null || italic == null || Podkresl == null || Czarnyczcionk == null || Czerwonyczcionk == null ||
                 Zielonyczcionk == null || Niebieskiczcionk == null ||
                 BezowyTlo == null || CzerwonyTlo == null || ZielonyTlo == null
                 || NiebieskiTlo == null || Lewo == null || Srodek == null || Prawo == null || Just == null || Arial == null ||
                 Times == null || Courier == null || panel == null || suwak == null)
             {
-                return;
+                return; //zamknięcie programu
             }
+            //aktualizuje metody zmieniające poszczególne elementy
             UstawKolorCzcionki();
             UstawKolorTla();
             UstawJustowanie();
@@ -38,6 +41,8 @@ namespace Edytor
             Progres();
         }
 
+
+        //ustawienie koloru czcionki
         private void UstawKolorCzcionki()
         {
             if (Czarnyczcionk.IsChecked == true)
@@ -98,6 +103,7 @@ namespace Edytor
             var grubosc = FontWeights.Normal;
             var dodatki = new TextDecorationCollection();
 
+            //jaki styl ma być po zaznaczeniu
             if (bold.IsChecked == true)
                 grubosc = FontWeights.Bold;
             if (italic.IsChecked == true)
@@ -109,6 +115,8 @@ namespace Edytor
             poletekstu.TextDecorations = dodatki;
         }
 
+
+        //zmiana kroju czcionki
         private void UstawKrojCzcionki()
         {
             if (Arial.IsChecked == true)
@@ -119,16 +127,20 @@ namespace Edytor
                 poletekstu.FontFamily = new FontFamily("Courier New");
         }
 
+
+        //zmiana wartości suwaka zmienia rozmiar czcionki
         private void RozmCzionki()
         {
             poletekstu.FontSize = suwak.Value;
         }
 
+
+        //dzialanie panelu progresu
         private void Progres()
         {
-            int progresik = 0;
+            int progresik = 0; //początkowa wartość 0
 
-            if (bold.IsChecked == true) progresik++;
+            if (bold.IsChecked == true) progresik++; //zwiększa się o jeden
             if (italic.IsChecked == true) progresik++;
             if (Podkresl.IsChecked == true) progresik++;
             if (Czarnyczcionk.IsChecked == true || Czerwonyczcionk.IsChecked == true || Zielonyczcionk.IsChecked == true
@@ -137,7 +149,7 @@ namespace Edytor
             if (Lewo.IsChecked == true || Srodek.IsChecked == true || Prawo.IsChecked == true || Just.IsChecked == true) progresik++;
             if (Arial.IsChecked == true || Times.IsChecked == true || Courier.IsChecked == true) progresik++;
             if (suwak.Value != suwak.Minimum) progresik++;
-            panel.Value = progresik;
+            panel.Value = progresik; //wartość panelu odpowiada progresik
         }
     }
 }
